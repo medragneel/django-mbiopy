@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{%block title%}Home Page{%endblock%}
+{%block content%}
+<style>
+    .mol-container {
+        width: 60%;
+        height: 400px;
+        position: relative;
+    }
+</style>
+<main class="px-5">
+    <div class="d-flex align-items-center">
+
+        <div>
+
+            <h1>BioPy Tech</h1>
+            <p class="lead">A Collection Of Useful tools For Bioinformatics</p>
+            <p class="lead">
+            <a href="#about" class="btn btn-lg btn-dark fw-bold">Learn more</a>
+            </p>
+        </div>
+            <div id="container-01" class="mol-container d-none d-sm-none d-md-block"></div>
+    </div>
+</main>
+
+{%endblock%}

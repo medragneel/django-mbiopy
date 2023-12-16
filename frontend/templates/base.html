@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo-dark-bio-py-tech.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" media="all">
+    <title>{% block title %}{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg  bg-light navbar-light p-3">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img id="mbiopytech" src="{% static 'images/logo-dark-bio-py-tech.png' %}" alt="BioPyTech"
+                    draggable="false" height="30" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="{% url 'home' %}"><i class="fa-solid fa-house pe-2"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="{% url 'tools' %}"><i
+                                class="fa-solid fa-wrench pe-2"></i>Tools</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item ms-3">
+                        <span>{{request.user}}</span>
+                        <a class="btn btn-light btn-rounded" href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-dark btn-rounded" href="{% url 'login' %}">Sign in</a>
+                    </li>
+
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar -->
+    <br>
+    <br>
+    <br>
+
+    <div class="container-fluid">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+          <img src="{% static 'images/logo-dark-bio-py-tech.png' %}" class="object-fit-contains" width="24" height="24" alt="BioPyTech-logo">
+      </a>
+      <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Company, Inc</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-body-secondary text-dark" href="#">
+        <i class="fa-brands fa-github"></i>
+          </a></li>
+      <li class="ms-3"><a class="text-body-secondary text-dark" href="#">
+              <i class="fa-brands fa-gitlab"></i>
+          </a></li>
+
+      <li class="ms-3"><a class="text-body-secondary text-dark" href="#">
+              <i class="fa-brands fa-discord"></i>
+          </a></li>
+    </ul>
+  </footer>
+</div>
+
+    <script src="https://kit.fontawesome.com/dffcb81fbc.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/3dmol.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}" ></script>
+</body>
+
+</html>

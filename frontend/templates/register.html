@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{%block title%}Register Page{%endblock%}
+{%block content%}
+    <div class="container">
+        <div class="p-5 text-center">
+            <h1 class="h3 mb-3 fw-normal">Please sign Up</h1>
+        </div>
+
+{% if messages %}
+
+{% for message in messages  %}
+
+<div class="alert alert-danger my-2" role="alert">
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
+        <form action="" method="POST" >
+            {% csrf_token %}
+
+
+
+    <div class="form-floating">
+        {{form.username}}
+        <label for="{{form.username.id_for_label}}">
+            {{form.username.label}}
+        </label>
+    </div>
+    <br>
+
+    <div class="form-floating">
+        {{form.email}}
+        <label for="{{form.email.id_for_label}}">
+            {{form.email.label}}
+        </label>
+    </div>
+    <br>
+
+    <div class="form-floating">
+        {{form.password1}}
+        <label for="{{form.password1.id_for_label}}">
+            {{form.password1.label}}
+        </label>
+    </div>
+    <br>
+
+
+    <div class="form-floating">
+        {{form.password2}}
+        <label for="{{form.password2.id_for_label}}">
+            {{form.password2.label}}
+        </label>
+    </div>
+    <br>
+
+
+    <button class="btn btn-dark w-100 py-2" type="submit">Sign Up</button>
+    <br>
+
+    <p class="mt-5 mb-3 text-body-secondary text-center"> Already have an Account ?  <a href="{% url 'login' %}">Sign In</a> </p>
+    <br>
+    </div>
+    <br>
+</div>
+
+
+
+
+  </form>
+</div>
+    <br>
+    <br>
+    <br>
+
+
+{%endblock%}
+
+
