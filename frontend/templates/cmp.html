@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{%block title%}DNA Complementary{% endblock %}
+
+{% block content %}
+<section class="gc_per">
+    <div class="container">
+        <h1 class="text-center py-4">DNA Complementary</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="{% url 'dna_cmp' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="dnaSequence" class="sr-only">Enter a DNA sequence</label>
+                        <textarea class="form-control" id="dnaSequence" name="dna_cmp"
+                            placeholder="Enter a DNA sequence" rows="4"></textarea>
+                    </div>
+                    <br>
+
+                    <button class="btn btn-dark btn-block" type="submit">Get DNA Reverse</button>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Brin transcris: {{ f }}</p>
+                        <p class="card-text">Brin comp: {{ cmp }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

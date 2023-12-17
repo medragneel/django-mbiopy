@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}Count Point Mutations {% endblock %}
+
+{% block content %}
+<section class="gc_per">
+    <div class="container">
+        <h1 class="text-center py-4">Count Point Mutations</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="{% url 'mutations_count' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <input placeholder="Enter seq1" class="form-control" type="text" name="seq1">
+                    </div>
+                    <div class="mb-3">
+                        <input placeholder="Enter seq2" class="form-control" type="text" name="seq2">
+                    </div>
+
+                    <small class="form-text text-muted">Please enter two sequences that have the same length.</small>
+                    <br>
+                    <br>
+
+                    <button class="btn btn-dark btn-block" type="submit">Compare</button>
+
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <b>{{ seq1 }}</b>
+                <br>
+                <b>{{ seq2 }}</b>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <table class="table" id="mutation">
+                    <thead>
+                        <tr>
+                            <th scope="col">Position Mutation</th>
+                            <th scope="col">Nucleotide 1</th>
+                            <th scope="col">Nucleotide 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for m in mc %}
+                        <tr>
+                            <td>{{ m.0 }}</td>
+                            <td style="color: red;">{{ m.1 }}</td>
+                            <td style="color: red;">{{ m.2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <p class="text-center p-2" id="mut_count">Mutations Count: {{ l }}</p>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-2">
+                <button class="btn btn-dark" onclick="saveMut()">Save Mutation As</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

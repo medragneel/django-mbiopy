@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<section class="gc_per">
+    <div class="container">
+        <h1 class="text-center py-4">From RNA to Peptide</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="{% url 'pseq' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <textarea placeholder="Enter an RNA sequence" class="form-control" type="text" name="rna_seq" rows="4"></textarea>
+                    </div>
+                    <button class="btn btn-dark btn-block" type="submit">Get Peptide</button>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">RNA Sequence: {{ psq }}</p>
+                        <p class="card-text">Peptide: <span id="protSeq">{{ pep }}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <button class="btn btn-dark btn-save" onclick="saveProt()">Save Protein As</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
