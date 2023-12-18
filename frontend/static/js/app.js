@@ -1,7 +1,7 @@
 let element = document.querySelector('#container-01');
 let config = {};
 let viewer = $3Dmol.createViewer(element, config);
-let pdbUri = 'static/1A12.pdb';
+let pdbUri = 'static/6bb5.pdb';
 jQuery.ajax(pdbUri, {
     success: function(data) {
         let v = viewer;

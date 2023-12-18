@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {%block title%}Home Page{%endblock%}
+
 {%block content%}
+{% load static %}
 <style>
     .mol-container {
         width: 60%;
@@ -21,6 +23,62 @@
         </div>
             <div id="container-01" class="mol-container d-none d-sm-none d-md-block"></div>
     </div>
+    <br>
+    <br>
+<div class="container">
+    <h1 class='text-center mb-5'>How To Use</h1>
+    <br>
+
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <img src="{% static 'images/gc_per.gif' %}" alt="gc_per" class="img-fluid">
+        </div>
+        <div class="col-md-6 d-flex align-items-center">
+            <h1 class='text-center mt-5'>GC Percentage</h1>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="row mb-5">
+        <div class="col-md-6 d-flex align-items-center">
+            <h1 class="text-center mb-5">DNA To RNA</h1>
+        </div>
+        <div class="col-md-6 d-flex align-items-center">
+            <img src="{% static 'images/dna_to_rna.gif' %}" alt="dna_to_rna" class="img-fluid">
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <img src="{% static 'images/rna_to_peptide.gif' %}" alt="rna_to_peptide" class="img-fluid">
+        </div>
+        <div class="col-md-6 d-flex align-items-center">
+            <h1 class='text-center mt-5'>RNA To Peptide</h1>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
+
+
+    <br>
+    <br>
+
+    <div id="about" class="about container">
+        <h1 class="text-center">
+            About Us
+        </h1>
+        <p class="text-center p-2">
+        Welcome to BioPyTech, your one-stop destination for bioinformatics tools! Our website offers a comprehensive collection of bioinformatics tools and resources, all conveniently gathered in one place for your research needs.
+        </p>
+
+    </div>
+
+
 </main>
 
 {%endblock%}

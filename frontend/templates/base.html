@@ -8,10 +8,9 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo-dark-bio-py-tech.png' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" media="all">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="all">
+
     <title>{% block title %}{% endblock %}</title>
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
 
 </head>
 
@@ -90,6 +89,7 @@
     <script src="{% static 'js/3dmol.min.js' %}"></script>
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/app.js' %}" ></script>
+    <script src="{% static 'js/pdb.js' %}"></script>
 </body>
 
 </html>

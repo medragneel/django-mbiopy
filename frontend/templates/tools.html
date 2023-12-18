@@ -15,7 +15,17 @@
                 <img class="img-fixed mx-auto" src="{% static tool.icon %}" alt="{{tool.name}}">
                 <div class="card-body d-flex flex-column" style="height:200px;">
                     <h2 class="text-center mt-3">{{ tool.name }}</h2>
+                    {% if tool.coming %}
+                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    Coming Soon
+    <span class="visually-hidden">Coming soon</span>
+  </span>
+
+                    <a href="{{ tool.url }}" class="btn btn-dark mt-auto disabled">Learn More</a>
+                    {% else %}
+
                     <a href="{{ tool.url }}" class="btn btn-dark mt-auto">Learn More</a>
+                    {% endif %}
                     <br>
                     <br>
                     <br>

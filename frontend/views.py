@@ -58,6 +58,8 @@ def tools(r):
     {"name": "Calculating Protein Mass", "url": "pmass", "icon": "icons/proteins.svg"},
     {"name": "Rna Sequence", "url": "rna", "icon": "icons/dna.svg"},
     {"name": "From Rna to Protein", "url": "pseq", "icon": "icons/prot.svg"},
+    {"name": "Pdb Viewer", "url": "pdbViewer", "icon": "icons/pdb.svg"},
+    {"name": "Phylogenie Viewer", "url": "phylo", "icon": "icons/phylo.svg",'coming': True},
 ]
 
 
@@ -187,4 +189,11 @@ def rnaToprotein(r):
         except Exception as e:
             messages.error(r,f'Invalid Sequence ,{e}')
     return render(r,'proteinSeq.html',context)
+
+
+@login_required(login_url='login')
+def pdbViewer(r):
+    context={}
+    return render(r,'pdb-viewer.html',context)
+
 

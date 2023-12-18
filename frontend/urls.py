@@ -18,4 +18,5 @@ urlpatterns = [
         path('tools/pmass/', views.protein_mass, name="pmass"),
         path('tools/rna/', views.dnaTorna, name="rna"),
         path('tools/pseq/', views.rnaToprotein, name="pseq"),
+        path('tools/pdbViewer/', views.pdbViewer, name="pdbViewer"),
 ]
